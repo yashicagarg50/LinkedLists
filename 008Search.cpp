@@ -37,6 +37,7 @@ bool search(ListNode* temp, int target) {
         }
         temp = temp->next;
     }
+    return false;
 }
 
 bool searchRecursive(ListNode* head, int target) {
