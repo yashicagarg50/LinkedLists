@@ -13,6 +13,13 @@ class ListNode {
         }
 };
 
+void insertAtHead(ListNode*& head, int val) {
+
+    ListNode* n = new ListNode(val);
+    n->next = head;
+    head = n;
+}
+
 void deleteAtHead(ListNode*& head) {
 
     // time : O(1)
@@ -28,9 +35,19 @@ void deleteAtHead(ListNode*& head) {
 
 }
 
+void printLinkedList(ListNode* temp) {
+
+    while(temp) { //temp != NULL
+        cout << temp->val << " ";
+        temp = temp->next;
+    }
+
+    cout << endl;
+}
+
 int main() {
 
-    ListNode* head = NULL // initially, LL is empty
+    ListNode* head = NULL; // initially, LL is empty
 
     insertAtHead(head, 50);
     insertAtHead(head, 40);
