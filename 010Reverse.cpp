@@ -43,6 +43,37 @@ ListNode* reverseIterative(ListNode* head) {
     return prev;
 }
 
+ListNode* reverseRecursive(ListNode* head) {
+
+    // base case
+
+    // if(head == NULL) {
+        // LL is empty
+    //     return head;
+    // }
+
+    // if(head->next == NULL) {
+    //     // LL has single node
+    //     return head;
+    // }
+
+    if(head == NULL || head->next == NULL) {
+        return head;
+    }
+
+
+    // recursive case
+
+    // 1. ask your friend to reverse the subList that starts from the node which comes after the head node
+
+    ListNode* revHead = reverseRecursive(head->next);
+    ListNode* revTail = head->next;
+    revTail->next = head;
+    head->next = NULL;
+
+    return revHead; 
+}
+
 int main() {
     ListNode* head = NULL; // initially, LL is empty
     
@@ -57,5 +88,10 @@ int main() {
     head = reverseIterative(head);
 
     printLinkedList(head);
+
+    head = reverseRecursive(head);
+
+    printLinkedList(head);
+    
     return 0;
 }
